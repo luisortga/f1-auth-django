@@ -7,7 +7,9 @@ authors = [
     { name = "luisOrtga", email = "ortegaluiskb@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "django>=6.1",
+]
 
 [project.scripts]
 f1-rest-api-django = "f1_rest_api_django:main"
