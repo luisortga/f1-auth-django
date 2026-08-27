@@ -27,4 +27,4 @@ line-length = 88
 select = ["E", "F", "I"]
 
 [tool.ruff.format]
-quote-style = "double"
+quote-style = "single"
