@@ -1,21 +1,27 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Pilots</h1>
 
-<ul>
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-3 py-5">Pilots</h1>
 
-    {% for pilot in pilots_all %}
+                <ul class="list-group">
 
-    <li>
+                    {% for pilot in pilots_all %}
 
-        <a href="{% url 'pilot_detail' pilot.id %}">
-        <strong>{{pilot.title}}</strong>
-        </a>
-        <h3>{{pilot.name}}</h3>
-        <h3>{{pilot.team}}</h3>
-        <p>{{pilot.user.username}}</p>
-    </li>
+                    <a class="list-group-item" href="{% url 'pilot_detail' pilot.id %}">
+                        <header class="d-flex justify-content-between">
+                            <h1 class="display-5 py-5">{{pilot.title}}</h1>
+                            <p>{{pilot.user.username}}</p>
+                        </header>
+                        <h3>{{pilot.name}}</h3>
+                        <h3>{{pilot.team}}</h3>
 
-    {% endfor %}
-</ul>
+                    </a>
+                    {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
 
 {% endblock %}
