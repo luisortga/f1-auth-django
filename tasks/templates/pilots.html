@@ -6,8 +6,12 @@
     {% for pilot in pilots_all %}
 
     <li>
-        <h1>{{pilot.title}}</h1>
+
+        <a href="{% url 'pilot_detail' pilot.id %}">
+        <strong>{{pilot.title}}</strong>
+        </a>
         <h3>{{pilot.name}}</h3>
+        <h3>{{pilot.team}}</h3>
         <p>{{pilot.user.username}}</p>
     </li>
 

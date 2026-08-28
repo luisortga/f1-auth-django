@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+<h1>{{pilot.title}}</h1>
+
+    {{error}}
+
+    <form method="POST">
+        
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            Update
+        </button>
+    </form>
+
+    <form action="{% url 'delete_pilot' pilot.id %}" method="POST">
+        
+        {% csrf_token %}
+        <button>
+            Delete
+        </button>
+    </form>
+
+{% endblock %}

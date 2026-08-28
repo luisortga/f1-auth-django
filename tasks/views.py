@@ -4,7 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import PilotForm
 from .models import Pilot
@@ -89,6 +89,35 @@ def create_pilot(request: HttpRequest) -> HttpResponse:
         )
 
 
+@login_required
+def delete_pilot(request: HttpRequest, pilot_id: int):
+    pilot = get_object_or_404(Pilot, pk=pilot_id, user=request.user)
+    if request.method == 'POST':
+        pilot.delete()
+        return redirect('pilots')
+
+
+@login_required
+def pilot_detail(request: HttpRequest, pilot_id: int) -> HttpResponse:
+    if request.method == 'GET':
+        pilot = get_object_or_404(Pilot, pk=pilot_id, user=request.user)
+        form = PilotForm(instance=pilot)
+        return render(request, 'pilot_detail.html', {'pilot': pilot, 'form': form})
+    else:
+        try:
+            pilot = get_object_or_404(Pilot, pk=pilot_id, user=request.user)
+            form = PilotForm(request.POST, instance=pilot)
+            form.save()
+            return redirect('pilots')
+        except ValueError:
+            return render(
+                request,
+                'pilot_detail.html',
+                {'pilot': pilot, 'form': form, 'error': 'Error updating pilot'},
+            )
+
+
+@login_required
 def signout(request: HttpRequest) -> HttpResponse:
     logout(request)
     return redirect('home')

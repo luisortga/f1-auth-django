@@ -28,4 +28,6 @@ urlpatterns = [
     path('pilots/create/', views.create_pilot, name='create_pilot'),
     path('logout/', views.signout, name='logout'),
     path('signin/', views.signin, name='signin'),
+    path('pilots/<int:pilot_id>/', views.pilot_detail, name='pilot_detail'),
+    path('pilots/<int:pilot_id>/delete/', views.delete_pilot, name='delete_pilot'),
 ]

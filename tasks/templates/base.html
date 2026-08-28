@@ -4,31 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>f1 django</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/pilots/">Pilots</a>
-        </li>
 
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a href="/" class="nav-link" >Home</a>
+        </li>
         {% if user.is_authenticated %}
-        <li>
-          <a href="/logout/">Logout</a>
+        <li class="nav-item">
+          <a href="{% url 'pilots' %}" class="nav-link" >Pilots</a>
+        </li>
+        <li class="nav-item">
+          <a href="/pilots/create" class="nav-link" >Create pilot</a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout/" class="nav-link" >Logout</a>
         </li>
         {% else %}
-        <li>
-          <a href="/signup/">Signup</a>
+        <li class="nav-item">
+          <a href="/signup/" class="nav-link" >Signup</a>
         </li>
-        <li>
-          <a href="/signin/">Signin</a>
+        <li class="nav-item">
+          <a href="/signin/" class="nav-link" >Signin</a>
         </li>
         {% endif %}
       </ul>
-    </nav>
+    </div>
+  </div>
+</nav>
 
     {% block content %} {% endblock %}
   </body>
