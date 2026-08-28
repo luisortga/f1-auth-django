@@ -23,7 +23,7 @@ def signup(request):
                 )
                 user.save()
                 login(request, user)
-                return redirect('tasks')
+                return redirect('pilots')
             except IntegrityError:  # noqa: E722
                 return render(
                     request,
@@ -38,8 +38,8 @@ def signup(request):
         )
 
 
-def tasks(request):
-    return render(request, 'tasks.html/')
+def pilots(request):
+    return render(request, 'pilots.html/')
 
 
 def signout(request):
@@ -67,4 +67,4 @@ def signin(request):
             )
         else:
             login(request, user)
-            return redirect('tasks')
+            return redirect('pilots')
