@@ -49,8 +49,11 @@ def create_pilot(request):
     if request.method == 'GET':
         return render(request, 'create_pilot.html', {'form': PilotForm})
     else:
-        print(request.POST)
-        return render(request, 'create_pilot.html', {'form': PilotForm})
+        form = PilotForm(request.POST)
+        new_pilot = form.save(commit=False)
+        new_pilot.user = request.user
+        new_pilot.save()
+        return redirect('pilots')
 
 
 def signout(request):
