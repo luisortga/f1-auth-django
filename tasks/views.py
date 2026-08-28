@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.shortcuts import redirect, render
 
+from .forms import PilotForm
+
 
 # Create your views here.
 def home(request):
@@ -40,6 +42,15 @@ def signup(request):
 
 def pilots(request):
     return render(request, 'pilots.html/')
+
+
+def create_pilot(request):
+
+    if request.method == 'GET':
+        return render(request, 'create_pilot.html', {'form': PilotForm})
+    else:
+        print(request.POST)
+        return render(request, 'create_pilot.html', {'form': PilotForm})
 
 
 def signout(request):
