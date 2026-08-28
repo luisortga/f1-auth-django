@@ -1,3 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 <h1>Pilots</h1>
+
+<ul>
+
+    {% for pilot in pilots_all %}
+
+    <li>
+        <h1>{{pilot.title}}</h1>
+        <h3>{{pilot.name}}</h3>
+        <p>{{pilot.user.username}}</p>
+    </li>
+
+    {% endfor %}
+</ul>
+
 {% endblock %}
