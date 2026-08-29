@@ -4,37 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>f1 project</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'f1/css/f1-theme.css' %}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </head>
-  <body>
+  <body class="{% block body_class %}{% endblock %}">
 
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-  <div class="container">
-    <a class="navbar-brand" href="/">f1</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg f1-navbar">
+      <div class="container">
+      <a class="navbar-brand" href="/">f1</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a href="/" class="nav-link" >Home</a>
+          <a href="/" class="navbar-brand" >Home</a>
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a href="{% url 'pilots' %}" class="nav-link" >Pilots</a>
+          <a href="{% url 'pilots' %}" class="navbar-brand" >Pilots</a>
         </li>
         <li class="nav-item">
-          <a href="/pilots/create" class="nav-link" >Create pilot</a>
+          <a href="/pilots/create" class="navbar-brand" >Create pilot</a>
         </li>
         <li class="nav-item">
-          <a href="/logout/" class="nav-link" >Logout</a>
+          <a href="/logout/" class="navbar-brand" >Logout</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a href="/signup/" class="nav-link" >Signup</a>
+          <a href="/signup/" class="navbar-brand" >Signup</a>
         </li>
         <li class="nav-item">
-          <a href="/signin/" class="nav-link" >Signin</a>
+          <a href="/signin/" class="navbar-brand" >Signin</a>
         </li>
         {% endif %}
       </ul>

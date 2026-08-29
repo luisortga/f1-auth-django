@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap");
+
+/* Carga este archivo después de Bootstrap 5.3.8. */
+:root {
+  --f1-red: #e10600;
+  --f1-red-bright: #ff2924;
+  --f1-carbon: #0b0d10;
+  --f1-surface: rgba(17, 20, 25, .73);
+  --f1-line: rgba(255, 255, 255, .14);
+  --f1-text: #f7f8fa;
+  --f1-muted: #b9c0ca;
+  --f1-yellow: #ffcc00;
+}
+
+html { min-height: 100%; }
+
+body {
+  min-height: 100vh;
+  color: var(--f1-text);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background:
+    linear-gradient(105deg, rgba(4, 7, 12, .91) 0%, rgba(4, 7, 12, .64) 52%, rgba(4, 7, 12, .84) 100%),
+    url("../img/rb20-eau-rouge.jpg") center 35% / cover fixed no-repeat;
+}
+
+/* Una película sutil tipo fibra de carbono, sin imagen adicional. */
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: .2;
+  background-image: linear-gradient(45deg, transparent 48%, rgba(255,255,255,.07) 49%, transparent 51%);
+  background-size: 8px 8px;
+}
+
+/* NAVBAR: agrega la clase f1-navbar a tu elemento .navbar. */
+.f1-navbar {
+  margin: 1rem auto 0;
+  width: min(1140px, calc(100% - 2rem));
+  border: 1px solid var(--f1-line);
+  border-radius: 1rem;
+  background: rgba(10, 12, 16, .54) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .28);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.f1-navbar .navbar-brand {
+  color: var(--f1-text) !important;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.f1-navbar .navbar-brand::before {
+  display: inline-block;
+  width: .42rem;
+  height: 1.3rem;
+  margin-right: .42rem;
+  content: "";
+  vertical-align: -.16rem;
+  background: var(--f1-red);
+  clip-path: polygon(0 0, 100% 0, 55% 100%, 0 100%);
+}
+
+.f1-navbar .nav-link {
+  position: relative;
+  padding: .55rem .85rem !important;
+  color: var(--f1-muted) !important;
+  font-size: .86rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transition: color .2s ease;
+}
+
+.f1-navbar .nav-link::after {
+  position: absolute;
+  right: .85rem;
+  bottom: .28rem;
+  left: .85rem;
+  height: 2px;
+  content: "";
+  background: var(--f1-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+
+.f1-navbar .nav-link:hover,
+.f1-navbar .nav-link.active { color: #fff !important; }
+.f1-navbar .nav-link:hover::after,
+.f1-navbar .nav-link.active::after { transform: scaleX(1); }
+.f1-navbar .navbar-toggler { border-color: var(--f1-line); }
+.f1-navbar .navbar-toggler-icon { filter: invert(1); }
+
+/* Contenedores, formularios y tarjetas Bootstrap. */
+.f1-page { padding-block: clamp(2rem, 5vw, 5rem); }
+.f1-title, .f1-page h1, .f1-page h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.f1-title { font-size: clamp(2.8rem, 7vw, 5.4rem); line-height: .88; }
+.f1-kicker { color: var(--f1-red-bright); font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+
+.f1-panel, .f1-page .card, .f1-page .list-group {
+  overflow: hidden;
+  border: 1px solid var(--f1-line) !important;
+  border-radius: 1rem !important;
+  color: var(--f1-text);
+  background: var(--f1-surface) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, .28);
+  backdrop-filter: blur(12px);
+}
+
+.f1-page .card-body { padding: clamp(1.35rem, 3vw, 2.5rem); }
+.f1-page .card-title { font-family: "Barlow Condensed", sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.f1-page .card-text, .f1-page p { color: var(--f1-muted); }
+
+.f1-page .list-group-item {
+  position: relative;
+  border-color: var(--f1-line) !important;
+  color: var(--f1-text) !important;
+  background: rgba(7, 9, 13, .38) !important;
+  transition: transform .2s ease, background .2s ease;
+}
+.f1-page .list-group-item:hover { z-index: 1; background: rgba(225, 6, 0, .13) !important; transform: translateX(.4rem); }
+.f1-page .list-group-item h2, .f1-page .list-group-item h3 { margin-bottom: .3rem; }
+.f1-page .list-group-item small { color: var(--f1-red-bright) !important; font-weight: 700; }
+
+.btn-f1, .f1-page .btn-primary {
+  border: 0;
+  border-radius: .45rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  background: var(--f1-red);
+  box-shadow: 0 8px 18px rgba(225, 6, 0, .28);
+}
+.btn-f1:hover, .f1-page .btn-primary:hover { color: #fff; background: #ba0500; transform: translateY(-1px); }
+.f1-page .btn-outline-light { border-color: rgba(255,255,255,.44); color: var(--f1-text); }
+.f1-page .form-control, .f1-page .form-select { border-color: var(--f1-line); color: var(--f1-text); background: rgba(6, 8, 12, .55); }
+.f1-page .form-control:focus, .f1-page .form-select:focus { border-color: var(--f1-red); box-shadow: 0 0 0 .25rem rgba(225, 6, 0, .2); background: rgba(6, 8, 12, .75); }
+
+/* Modificadores de fondo para páginas concretas. */
+body.f1-pilots { background-image: linear-gradient(105deg, rgba(4, 7, 12, .88), rgba(4, 7, 12, .68)), url("../img/cadillac-rain.jpg"); background-position: center; }
+body.f1-create-pilot { background-image: linear-gradient(105deg, rgba(4, 7, 12, .88), rgba(4, 7, 12, .55)), url("../img/ferrari-pitstop.jpg"); background-position: center 38%; }
+
+@media (max-width: 991.98px) {
+  .f1-navbar { margin-top: .5rem; }
+  .f1-navbar .navbar-collapse { padding: .65rem 0 .2rem; }
+  body { background-attachment: scroll; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
