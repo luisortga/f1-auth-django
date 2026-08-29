@@ -1,23 +1,33 @@
 {% extends 'base.html' %} {% block content %}
-<h1>{{pilot.title}}</h1>
 
-    {{error}}
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
 
-    <form method="POST">
-        
-        {% csrf_token %}
-        {{form.as_p}}
-        <button>
-            Update
-        </button>
-    </form>
+                    <h1 class="text-secondary">{{pilot.title}}</h1>
 
-    <form action="{% url 'delete_pilot' pilot.id %}" method="POST">
-        
-        {% csrf_token %}
-        <button>
-            Delete
-        </button>
-    </form>
+                    {{error}}
+
+                    <div class="mt-5">
+                        <form method="POST">
+                
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <button class="btn btn-primary">
+                                Update
+                            </button>
+                        </form>
+
+                        <form action="{% url 'delete_pilot' pilot.id %}" method="POST">
+                            
+                            {% csrf_token %}
+                            <button class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+        </div>
+    </div>
+</main>
 
 {% endblock %}

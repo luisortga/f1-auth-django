@@ -6,7 +6,7 @@ from django.db import models
 class Pilot(models.Model):
     title = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    acronym = models.CharField(max_length=10)
+    acronym = models.CharField(max_length=40)
     team = models.CharField(max_length=80)
     track = models.CharField(max_length=80)
     created = models.DateTimeField(auto_now_add=True)
