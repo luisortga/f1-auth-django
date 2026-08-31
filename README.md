@@ -6,7 +6,7 @@ The application allows users to **register, log in and log out**. Once authentic
 
 The project was created as a practical exercise to work with **Django authentication, forms, PostgreSQL, Bootstrap, environment management and cloud deployment**.
 
-## 📸 Preview
+## 🔭 Preview
 
 <p align="center">
   <img src="https://i.imgur.com/ICydKup.png" alt="F1 Auth Django" width="850">
@@ -16,11 +16,11 @@ The project was created as a practical exercise to work with **Django authentica
   <img src="https://i.imgur.com/D6i56vI.png" alt="F1 Auth Django Drivers" width="850">
 </p>
 
-## 🚀 Live Demo
+## 🐍 Live Demo
 
 The application is deployed on **Render**.
 
-👉 https://f1-auth-django.onrender.com/
+😼 https://f1-auth-django.onrender.com/
 
 ## ✨ Features
 
@@ -34,13 +34,13 @@ The application is deployed on **Render**.
   * Name
   * Acronym
   * Circuit
-* 🃏 Display drivers using responsive Bootstrap cards
+* 🧧 Display drivers using responsive Bootstrap cards
 * 🗄️ PostgreSQL database
 * 📱 Responsive interface
 * ☁️ Deployment with Render
 * ⚡ Python environment and dependency management with uv
 
-## 🛠️ Technologies
+## Technologies
 
 <p align="center">
 
@@ -100,7 +100,7 @@ The interface combines:
 * Formula 1 inspired visual elements
 * Custom CSS styling
 
-> 🤖 **AI-assisted development:** ChatGPT Codex was used to assist with the implementation and refinement of the visual design, backgrounds and blur effects.
+> 👾 **AI-assisted development:** ChatGPT Codex was used to assist with the implementation and refinement of the visual design, backgrounds and blur effects.
 
 ## 🔐 Authentication
 
@@ -259,7 +259,7 @@ This project was created to practice building a complete Django web application 
 * Cloud deployment with Render
 * AI-assisted development with ChatGPT Codex
 
-## 📚 What I Practiced
+## 🧪 What I Practiced
 
 ```text
 Python
